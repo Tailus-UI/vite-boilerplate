@@ -1,0 +1,24 @@
+{
+  "name": "html-vite",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^2.9.9"
+  },
+  "description": "tailus html-vite and tailwindcss v3 boilerplate",
+  "main": "main.js",
+  "keywords": [
+    "tailwindcss",
+    "tailus",
+    "boilerplate",
+    "html",
+    "vite"
+  ],
+  "author": "Méschac irung",
+  "license": "ISC"
+}
