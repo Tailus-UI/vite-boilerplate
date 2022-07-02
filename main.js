@@ -1,4 +1,4 @@
-import './style.css'
+import './assets/css/tailwind.css'
 
 document.querySelector('#app').innerHTML = `
   <h1>Hello Vite!</h1>

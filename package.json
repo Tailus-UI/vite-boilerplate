@@ -8,6 +8,7 @@
     "preview": "vite preview"
   },
   "devDependencies": {
+    "tailwindcss": "^3.1.4",
     "vite": "^2.9.9"
   },
   "description": "tailus html-vite and tailwindcss v3 boilerplate",
