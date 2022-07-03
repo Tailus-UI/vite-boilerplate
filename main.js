@@ -13,11 +13,8 @@ if (
   document.documentElement.classList.remove("dark");
 }
 
-let theme = "class";
-
 switchers.forEach((switcher) => {
   switcher.addEventListener("click", function () {
-    theme = "class";
     if (localStorage.getItem("color-theme")) {
       if (localStorage.getItem("color-theme") === "light") {
         document.documentElement.classList.add("dark");
@@ -37,9 +34,3 @@ switchers.forEach((switcher) => {
     }
   });
 });
-
-sysSwitcher.addEventListener("click", () => {
-  theme = "media";
-});
-
-export default theme;
