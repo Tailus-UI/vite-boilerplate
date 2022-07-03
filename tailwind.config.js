@@ -2,7 +2,7 @@
 module.exports = {
   content: ['index.html','./src/**/*.{js,jsx,ts,tsx,vue,html}'],
   presets: [],
-  darkMode: 'media', // or 'class'
+  darkMode: 'class', // or 'class'
   theme: {
     screens: {
       sm: '640px',
@@ -23,7 +23,7 @@ module.exports = {
       slate: colors.slate,
       gray: {
         50:'#FBFBFB',
-        100:'#D9D9D9',
+        100:'#ECEFF1',
         200:'#F0F0F0',
         300:'#BAC8CC',
         400:'#767E81',

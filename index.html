@@ -11,28 +11,47 @@
   </head>
   <body class="bg-white dark:bg-dark">
     <header class="fixed inset-x-0 top-0 z-10">
-      <nav class="border-b border-gray-100 border-opacity-50 dark:border-gray-800 py-3 bg-white dark:bg-dark dark:bg-opacity-75 bg-opacity-75 backdrop-blur">
+      <nav class="h-16 border-b border-gray-100 border-opacity-60 dark:border-gray-800 py-3 bg-white dark:bg-dark dark:bg-opacity-75 bg-opacity-75 backdrop-blur">
           <div class="md:max-w-3xl lg:max-w-7xl mx-auto px-6 md:px-12">
-            <div class="flex items-center justify-between">
+            <div class="flex justify-between">
               <img src="./assets/images/logo.svg" class="h-9 dark:hidden" width="129.69" height="36" alt="logo tailus">
               <img src="./assets/images/logo-dark.svg" class="hidden h-9 dark:block" width="129.69" height="36" alt="logo tailus">
-              <a href="https://tailus.io/blocks" 
-                  class="relative h-10 px-6 flex items-center
-                        before:absolute 
-                        before:inset-0 
-                        before:rounded-full
-                        before:bg-gradient-to-b
-                        before:from-[#01FCE8]
-                        before:to-[#0EC8FE]
-                        before:transition
-                        before:duration-300
-                        hover:before:scale-105
-                        active:duration-75
-                        active:before:scale-95
-                  "
-              >
-                <span class="relative text-dark font-semibold text-sm">Browse blocks</span>
-              </a>
+              <div class="flex gap-4">
+                <a href="https://tailus.io/blocks" 
+                    class="relative h-10 px-6 flex items-center
+                          before:absolute 
+                          before:inset-0 
+                          before:rounded-full
+                          before:bg-gradient-to-b
+                          before:from-[#01FCE8]
+                          before:to-[#0EC8FE]
+                          before:transition
+                          before:duration-300
+                          hover:before:scale-105
+                          active:duration-75
+                          active:before:scale-95
+                    "
+                >
+                  <span class="relative text-dark font-semibold text-sm">Browse blocks</span>
+                </a>
+                <div class="group hover:h-[7.6rem] flex flex-col rounded-full bg-gray-50 border-gray-100 dark:bg-gray-800 border dark:border-gray-700 transition duration-300">
+                    <button class="switcher -mt-10 dark:mt-0 group-hover:mt-0 dark:opacity-100 opacity-0 group-hover:opacity-100 dark:order-1 order-2 flex h-10 w-10 group rounded-full tansition duration-300 hover:bg-gray-100 dark:hover:bg-gray-700">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 m-auto fill-gray-500 dark:fill-gray-300 dark:group-hover:fill-yellow-400 transistion duration-300 group-hover:rotate-180" viewBox="0 0 20 20" fill="currentColor">
+                          <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd" />
+                      </svg>
+                    </button>
+                    <button class="switcher dark:order-2 order-1 opacity-100 dark:opacity-0 dark:group-hover:mt-0 dark:group-hover:opacity-100 darka:opacity-0 dark:-mt-10 flex h-10 w-10 group rounded-full tansition duration-300 hover:bg-gray-100 dark:hover:bg-gray-700">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 m-auto fill-gray-500 group-hover:fill-cyan-900 dark:fill-gray-300 dark:group-hover:fill-gray-300 transistion duration-300 group-hover:-rotate-90" viewBox="0 0 20 20" fill="currentColor">
+                          <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+                      </svg>
+                    </button>
+                    <button id="system" class="order-last group-hover:mt-0 group-hover:opacity-100 opacity-0 -mt-10 flex h-10 w-10 group rounded-full tansition duration-300 hover:bg-gray-100 dark:hover:bg-gray-700">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 m-auto fill-gray-500 dark:fill-gray-300 transistion duration-300" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M3 5a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2h-2.22l.123.489.804.804A1 1 0 0113 18H7a1 1 0 01-.707-1.707l.804-.804L7.22 15H5a2 2 0 01-2-2V5zm5.771 7H5V5h10v7H8.771z" clip-rule="evenodd" />
+                      </svg>
+                    </button>
+                </div>
+              </div>
             </div>
           </div>
       </nav>
@@ -168,7 +187,7 @@
             ecommerce, landing page and dashboard) website.</p>
         </div>
         <div class="grid gap-8 lg:grid-cols-2">
-            <div class="overflow-hidden p-8 space-y-10 bg-gray-50 border border-gray-100 border-opacity-50 rounded-2xl dark:border-gray-700 dark:bg-gray-800">
+            <div class="overflow-hidden p-8 space-y-10 bg-gray-50 border border-gray-100 border-opacity-70 rounded-2xl dark:border-gray-700 dark:bg-gray-800">
                 <div class="space-y-8">
                   <div>
                     <svg class="dark:hidden" width="74" height="74" viewBox="0 0 74 74" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -248,23 +267,23 @@
 
                 <div class="overflow-x-scroll -mx-8">
                     <div class="px-8 w-max snap-x grid gap-4 grid-cols-6">
-                      <a href="https://tailus.io/blocks/hero-section/" class="snap-center rounded-xl text-center pb-2 border border-gray-100 border-opacity-50 bg-white dark:bg-dark dark:border-gray-700 dark:border-opacity-70">
+                      <a href="https://tailus.io/blocks/hero-section/" class="snap-center rounded-xl text-center pb-2 border border-gray-100 bg-white dark:bg-dark dark:border-gray-700 dark:border-opacity-70">
                         <img src="./assets/images/skeletons/hero-section.svg" class="w-36" alt="hero section" loading="lazy" width="144" height="">  
                         <span class="-mt-2 block text-lg text-center font-medium text-gray-600 dark:text-gray-500">Herosection</span>
                       </a>
-                      <a href="https://tailus.io/blocks/dashboard/" class="snap-center rounded-xl text-center pb-2 border border-gray-100 border-opacity-50 bg-white dark:bg-dark dark:border-gray-700 dark:border-opacity-70">
+                      <a href="https://tailus.io/blocks/dashboard/" class="snap-center rounded-xl text-center pb-2 border border-gray-100 bg-white dark:bg-dark dark:border-gray-700 dark:border-opacity-70">
                         <img src="./assets/images/skeletons/dashboard.svg" class="w-36" alt="dashboard" loading="lazy" width="144" height="">  
                         <span class="-mt-2 block text-lg text-center font-medium text-gray-600 dark:text-gray-500">Dashboard</span>
                       </a>
-                      <a href="https://tailus.io/blocks/blog/" class="snap-center rounded-xl text-center pb-2 border border-gray-100 border-opacity-50 bg-white dark:bg-dark dark:border-gray-700 dark:border-opacity-70">
+                      <a href="https://tailus.io/blocks/blog/" class="snap-center rounded-xl text-center pb-2 border border-gray-100 bg-white dark:bg-dark dark:border-gray-700 dark:border-opacity-70">
                         <img src="./assets/images/skeletons/blog.svg" class="w-36" alt="blog" loading="lazy" width="144" height="">  
                         <span class="-mt-2 block text-lg text-center font-medium text-gray-600 dark:text-gray-500">Content</span>
                       </a>
-                      <a href="https://tailus.io/blocks/services-features/" class="snap-center rounded-xl text-center pb-2 border border-gray-100 border-opacity-50 bg-white dark:bg-dark dark:border-gray-700 dark:border-opacity-70">
+                      <a href="https://tailus.io/blocks/services-features/" class="snap-center rounded-xl text-center pb-2 border border-gray-100 bg-white dark:bg-dark dark:border-gray-700 dark:border-opacity-70">
                         <img src="./assets/images/skeletons/features.svg" class="w-36" alt="features" loading="lazy" width="144" height="">  
                         <span class="-mt-2 block text-lg text-center font-medium text-gray-600 dark:text-gray-500">Services</span>
                       </a>
-                      <a href="https://tailus.io/blocks/login/" class="snap-center rounded-xl text-center pb-2 border border-gray-100 border-opacity-50 bg-white dark:bg-dark dark:border-gray-700 dark:border-opacity-70">
+                      <a href="https://tailus.io/blocks/login/" class="snap-center rounded-xl text-center pb-2 border border-gray-100 bg-white dark:bg-dark dark:border-gray-700 dark:border-opacity-70">
                         <img src="./assets/images/skeletons/login.svg" class="w-36" alt="login" loading="lazy" width="144" height="">  
                         <span class="-mt-2 block text-lg text-center font-medium text-gray-600 dark:text-gray-500">Services</span>
                       </a>
@@ -276,7 +295,7 @@
                     </div>
                 </div>
             </div>
-            <div class="overflow-hidden p-8 space-y-10 bg-gray-50 border border-gray-100 border-opacity-50 rounded-2xl dark:border-gray-700 dark:bg-gray-800">
+            <div class="overflow-hidden p-8 space-y-10 bg-gray-50 border border-gray-100 border-opacity-70 rounded-2xl dark:border-gray-700 dark:bg-gray-800">
               <div class="space-y-8">
                 <div>
                   <svg class="dark:hidden" width="74" height="74" viewBox="0 0 74 74" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -336,23 +355,23 @@
 
               <div class="overflow-x-scroll -mx-8">
                   <div class="px-8 w-max snap-x grid gap-4 grid-cols-6">
-                    <a href="https://tailus.io/blocks/hero-section/" class="snap-center rounded-xl text-center pb-2 border border-gray-100 border-opacity-60 bg-white dark:bg-dark dark:border-gray-700 dark:border-opacity-70">
+                    <a href="https://tailus.io/blocks/hero-section/" class="snap-center rounded-xl text-center pb-2 border border-gray-100 bg-white dark:bg-dark dark:border-gray-700 dark:border-opacity-70">
                       <img src="./assets/images/skeletons/hero-section.svg" class="w-36" alt="hero section" loading="lazy" width="144" height="">  
                       <span class="-mt-2 block text-lg text-center font-medium text-gray-600 dark:text-gray-500">Herosection</span>
                     </a>
-                    <a href="https://tailus.io/blocks/dashboard/" class="snap-center rounded-xl text-center pb-2 border border-gray-100 border-opacity-60 bg-white dark:bg-dark dark:border-gray-700 dark:border-opacity-70">
+                    <a href="https://tailus.io/blocks/dashboard/" class="snap-center rounded-xl text-center pb-2 border border-gray-100 bg-white dark:bg-dark dark:border-gray-700 dark:border-opacity-70">
                       <img src="./assets/images/skeletons/dashboard.svg" class="w-36" alt="dashboard" loading="lazy" width="144" height="">  
                       <span class="-mt-2 block text-lg text-center font-medium text-gray-600 dark:text-gray-500">Dashboard</span>
                     </a>
-                    <a href="https://tailus.io/blocks/blog/" class="snap-center rounded-xl text-center pb-2 border border-gray-100 border-opacity-60 bg-white dark:bg-dark dark:border-gray-700 dark:border-opacity-70">
+                    <a href="https://tailus.io/blocks/blog/" class="snap-center rounded-xl text-center pb-2 border border-gray-100 bg-white dark:bg-dark dark:border-gray-700 dark:border-opacity-70">
                       <img src="./assets/images/skeletons/blog.svg" class="w-36" alt="blog" loading="lazy" width="144" height="">  
                       <span class="-mt-2 block text-lg text-center font-medium text-gray-600 dark:text-gray-500">Content</span>
                     </a>
-                    <a href="https://tailus.io/blocks/services-features/" class="snap-center rounded-xl text-center pb-2 border border-gray-100 border-opacity-60 bg-white dark:bg-dark dark:border-gray-700 dark:border-opacity-70">
+                    <a href="https://tailus.io/blocks/services-features/" class="snap-center rounded-xl text-center pb-2 border border-gray-100 bg-white dark:bg-dark dark:border-gray-700 dark:border-opacity-70">
                       <img src="./assets/images/skeletons/features.svg" class="w-36" alt="features" loading="lazy" width="144" height="">  
                       <span class="-mt-2 block text-lg text-center font-medium text-gray-600 dark:text-gray-500">Services</span>
                     </a>
-                    <a href="https://tailus.io/blocks/login/" class="snap-center rounded-xl text-center pb-2 border border-gray-100 border-opacity-60 bg-white dark:bg-dark dark:border-gray-700 dark:border-opacity-70">
+                    <a href="https://tailus.io/blocks/login/" class="snap-center rounded-xl text-center pb-2 border border-gray-100 bg-white dark:bg-dark dark:border-gray-700 dark:border-opacity-70">
                       <img src="./assets/images/skeletons/login.svg" class="w-36" alt="login" loading="lazy" width="144" height="">  
                       <span class="-mt-2 block text-lg text-center font-medium text-gray-600 dark:text-gray-500">Services</span>
                     </a>
