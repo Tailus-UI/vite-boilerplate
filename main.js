@@ -1,8 +1,7 @@
 import "./assets/css/tailwind.css";
+import "./src/js/navbar.js"
 
 let switchers = document.querySelectorAll(".switcher");
-let sysSwitcher = document.querySelector("#system");
-
 if (
   localStorage.getItem("color-theme") === "dark" ||
   (!("color-theme" in localStorage) &&
