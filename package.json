@@ -25,5 +25,8 @@
     "vite"
   ],
   "author": "Méschac irung",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@tailus/themer-plugins": "^0.1.3"
+  }
 }

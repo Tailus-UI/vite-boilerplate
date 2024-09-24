@@ -1,0 +1,1097 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        /* Border Radius */
+        --card-radius: theme(borderRadius.xl);
+        --btn-radius: var(--card-radius);
+        --badge-radius: var(--btn-radius);
+        --input-radius: var(--btn-radius);
+        --avatar-radius: theme(borderRadius.full);
+        --annonce-radius: var(--avatar-radius);
+
+        /* Border Color */
+        --ui-border-color: theme(colors.gray.200);
+        --btn-border:theme(colors.gray.200);
+        --badge-border : var(--btn-border);
+        --input-border: var(--ui-border-color);
+        --ui-disabled-border : theme(colors.gray.100);
+        --ui-error-border : theme(colors.danger.600);
+        --ui-success-border : theme(colors.success.600);
+        --input-outline:theme(colors.primary.600);
+
+        /* Background */
+
+        --ui-bg: theme(colors.white/var(--ui-bg-opacity));
+        --ui-soft-bg: theme(colors.gray.100);
+        --overlay-bg: theme(colors.gray.950/0.25);
+        --input-bg:var(--ui-soft-bg);
+        --ui-disabled-bg : theme(colors.gray.100);
+
+        /* Padding */
+        --card-padding: theme("spacing[6]");
+
+        /* Typography */
+        --display-text-color: theme(colors.gray.950);
+        --title-text-color: var(--display-text-color);
+        --body-text-color: theme(colors.gray.700);
+        --caption-text-color: theme(colors.gray.500);
+        --placeholder-text-color: theme(colors.gray.400);
+
+        /* Opacity */
+        --ui-bg-opacity: 1;
+
+        color : var(--body-text-color);
+
+        @apply dark:[--ui-border-color:theme('colors.gray.800')] dark:[--ui-disabled-bg:theme('colors.gray.900')] dark:[--ui-bg:theme('colors.gray.900/var(--ui-bg-opacity)')] dark:[--ui-soft-bg:theme('colors.gray.800')] dark:[--display-text-color:theme('colors.white')] dark:[--body-text-color:theme('colors.gray.300')] dark:[--placeholder-text-color:theme('colors.gray.600')]
+    }
+
+    *{
+        border-color: var(--ui-border-color);
+    }
+
+    button:disabled{
+        border:none !important;
+        background: var(--ui-disabled-bg) !important;
+        background-image: none !important;
+        box-shadow: none !important;
+        color: var(--placeholder-text-color) !important;
+        pointer-events: none !important;
+    }
+
+    a:focus-visible, button:focus-visible {
+        @apply outline-2 outline-offset-2 focus-visible:outline outline-primary-600
+    }
+
+    input:user-invalid, textarea:user-invalid, select:user-invalid {
+        --input-border: var(--ui-error-border);
+        --ui-border-color: var(--ui-error-border);
+        --input-outline : var(--ui-error-border);
+        --title-text-color : theme(colors.danger.600);
+
+        @apply dark:[--title-text-color:theme(colors.danger.400)]
+    }
+
+    /* Data attributes */
+    /* Rounded Data attributes */
+    [data-rounded="none"] {
+        --card-radius: theme(borderRadius.none);
+        --avatar-radius: theme(borderRadius.none);
+    }
+
+    [data-rounded="default"] {
+        --card-radius: theme("borderRadius.DEFAULT");
+    }
+
+    [data-rounded="small"] {
+        --card-radius: theme("borderRadius.sm");
+    }
+
+    [data-rounded="medium"] {
+        --card-radius: theme("borderRadius.md");
+    }
+
+    [data-rounded="large"] {
+        --card-radius: theme("borderRadius.lg");
+    }
+
+    [data-rounded="xlarge"] {
+        --card-radius: theme("borderRadius.xl");
+    }
+
+    [data-rounded="2xlarge"] {
+        --card-radius: theme("borderRadius.2xl");
+        --input-radius: theme("borderRadius.xl");
+    }
+
+    [data-rounded="3xlarge"] {
+        --card-radius: theme("borderRadius.3xl");
+        --input-radius: theme("borderRadius.xl");
+    }
+    
+    [data-rounded="full"] {
+        --card-radius: theme("borderRadius.3xl");
+        --btn-radius: theme("borderRadius.full");
+        --input-radius: theme("borderRadius.2xl");
+    }
+
+    /* Shade Data Attributes */
+
+    [data-shade="glassy"] {
+        --ui-bd-blur: theme("blur[2xl]");
+        --ui-bg-opacity: 0.75;
+        --ui-bg: theme("colors.white/var(--ui-bg-opacity)");
+
+        @apply dark:[--ui-bg-opacity:0.5] dark:[--ui-border-color:theme(colors.gray.50/0.1)] dark:[--ui-bg:theme(colors.gray.700/var(--ui-bg-opacity))] dark:[--ui-soft-bg:theme(colors.gray.600/0.50)]
+    }
+
+    [data-shade="800"] {
+        @apply dark:[--ui-border-color:theme(colors.gray.700)] dark:[--ui-bg:theme(colors.gray.800)] dark:[--ui-soft-bg:theme(colors.gray.900)]
+    }
+
+    [data-shade="900"] {
+        @apply dark:[--ui-border-color:theme(colors.gray.800)] dark:[--ui-bg:theme(colors.gray.900)] dark:[--ui-soft-bg:theme(colors.gray.800)] 
+    }
+
+    [data-shade="925"] {
+        @apply dark:[--ui-border-color:theme(colors.gray.800)] dark:[--ui-bg:theme(colors.gray.925)] dark:[--ui-soft-bg:theme(colors.gray.800)]
+    }
+
+    [data-shade="950"] {
+        @apply dark:[--ui-border-color:theme(colors.gray.800)] dark:[--ui-bg:theme(colors.gray.950)] dark:[--ui-soft-bg:theme(colors.gray.800)]
+    }
+}
+
+@layer utilities {
+    /* Typography */
+    .text-display {
+        color : var(--display-text-color);
+    }
+
+    .text-title {
+        color : var(--title-text-color);
+    }
+
+    .text-body {
+        color : var(--body-text-color);
+    }
+
+    .text-caption {
+        color : var(--caption-text-color)
+    }
+
+    .text-placeholder {
+        color : var(--placeholder-text-color)
+    }
+
+    /* Border Radius */
+    .rounded-card{
+        border-radius: var(--card-radius);
+    }
+
+    .rounded-btn{
+        border-radius: var(--btn-radius);
+    }
+
+    .rounded-badge{
+        border-radius: var(--badge-radius);
+    }
+
+    .rounded-annonce{
+        border-radius: var(--annonce-radius);
+    }
+
+    .rounded-input{
+        border-radius: var(--input-radius);
+    }
+
+    .rounded-avatar{
+        border-radius: var(--avatar-radius);
+    }
+
+    /* Background */
+    .bg-ui{
+        background: var(--ui-bg);
+    }
+
+    .bg-ui-soft{
+        background: var(--ui-soft-bg);
+    }
+
+    .bg-overlay{
+        background: var(--overlay-bg);
+    }
+}
+
+@layer components {
+    /* Typography */
+    .text-blockquote {
+        color: var(--body-text-color);
+        @apply italic pl-4 border-l-2
+    }
+
+    .text-quote {
+        color: var(--body-text-color);
+        @apply italic pl-4 border-l-2
+    }
+
+    /* Button */
+
+    .btn{
+        @apply flex justify-center gap-1.5 items-center rounded-[--btn-radius]
+    }
+
+    .btn.variant-solid {
+        transition:filter;
+        @apply bg-gradient-to-b [box-shadow:rgba(255,255,255,0.25)_0px_1px_0px_0px_inset,var(--btn-border-color)_0px_0px_0px_1px] text-white hover:brightness-[1.1] duration-150 ease-in-out active:brightness-95 dark:shadow-inner dark:to-0% dark:border-t dark:shadow-white/10
+    }
+
+    .btn.variant-outlined {
+        transition:filter;
+        @apply [--outline-radial-opacity:0.6] dark:[background-image:none] [--inner-border-color:1] dark:[--inner-border-color:0] dark:[--outline-radial-opacity:0.2] [background-image:radial-gradient(76%_151%_at_52%_-52%,rgba(255,255,255,var(--outline-radial-opacity))_0%,transparent_100%)] [box-shadow:rgba(255,255,255,var(--inner-border-color))_0px_1px_0px_0px_inset,var(--btn-border-color)_0px_0px_0px_1px,0px_1px_2px_rgba(0,0,0,0.1)] hover:brightness-[0.98] active:brightness-100 ease-in-out duration-150
+    }
+
+    .btn.sz-xs {
+        @apply text-sm h-7 px-3
+    }
+
+    .btn.sz-sm {
+        @apply text-sm h-8 px-3.5
+    }
+
+    .btn.sz-md{
+        @apply text-base h-9 px-4
+    }
+
+    .btn.sz-lg{
+        @apply text-base h-10 px-5
+    }
+
+    .btn.sz-xl{
+        @apply text-lg h-12 px-6
+    }
+
+    .btn.icon-only{
+        @apply px-0
+    }
+
+    .btn.icon-only.sz-xs {
+        @apply size-7
+    }
+
+    .btn.icon-only.sz-sm {
+        @apply size-8
+    }
+
+    .btn.icon-only.sz-md{
+        @apply size-9
+    }
+
+    .btn.icon-only.sz-lg{
+        @apply size-10
+    }
+
+    .btn.icon-only.sz-xl{
+        @apply size-12
+    }
+
+    .btn.variant-solid.intent-primary {
+        @apply from-primary-500 to-primary-600 [--btn-border-color:theme('colors.primary.700')] dark:border-primary-400/75
+    }
+
+    .btn.variant-solid.intent-secondary {
+        @apply from-secondary-500 to-secondary-600 [--btn-border-color:theme('colors.secondary.700')] dark:border-secondary-400/75
+    }
+
+    .btn.variant-solid.intent-accent {
+        @apply from-accent-500 to-accent-600 [--btn-border-color:theme('colors.accent.700')] dark:border-accent-400/75
+    }
+
+    .btn.variant-solid.intent-info {
+        @apply from-info-500 to-info-600 [--btn-border-color:theme('colors.info.700')] dark:border-info-400/75
+    }
+
+    .btn.variant-solid.intent-success {
+        @apply from-success-500 to-success-600 [--btn-border-color:theme('colors.success.700')] dark:border-success-400/75
+    }
+
+    .btn.variant-solid.intent-danger {
+        @apply from-danger-500 to-danger-600 [--btn-border-color:theme('colors.danger.700')] dark:border-danger-400/75
+    }
+
+    .btn.variant-solid.intent-warning {
+        @apply from-warning-400 to-warning-500 text-warning-950 [--btn-border-color:theme(colors.warning.600)] dark:border-warning-300
+    }
+
+    .btn.variant-solid.intent-gray {
+        @apply from-gray-500 to-gray-600 [--btn-border-color:theme('colors.gray.700')] dark:border-gray-400/75
+    }
+
+    .btn.variant-solid.intent-neutral {
+        @apply bg-gray-900 [background-image:radial-gradient(76%_151%_at_52%_-52%,rgba(255,255,255,0.5)_0%,transparent_100%)] [box-shadow:rgba(255,255,255,0.3)_0px_1px_0px_0px_inset,theme(colors.gray.950)_0px_0px_0px_1px] hover:brightness-125 dark:bg-white dark:text-gray-950 dark:border-gray-300
+    }
+
+    .btn.variant-outlined.intent-primary {
+        @apply [--btn-border-color:theme(colors.primary.200)] dark:[--btn-border-color:theme(colors.primary.500/0.3)] text-primary-800 bg-primary-50 dark:text-primary-300 dark:bg-primary-500/5 dark:hover:bg-primary-500/10 dark:active:bg-primary-500/5
+    }
+
+    .btn.variant-outlined.intent-secondary {
+        @apply [--btn-border-color:theme(colors.secondary.200)] dark:[--btn-border-color:theme(colors.secondary.500/0.3)] text-secondary-800 bg-secondary-50 dark:text-secondary-300 dark:bg-secondary-500/5 dark:hover:bg-secondary-500/10 dark:active:bg-secondary-500/5
+    }
+
+    .btn.variant-outlined.intent-accent {
+        @apply [--btn-border-color:theme(colors.accent.200)] dark:[--btn-border-color:theme(colors.accent.500/0.3)] text-accent-800 bg-accent-50 dark:text-accent-300 dark:bg-accent-500/5 dark:hover:bg-accent-500/10 dark:active:bg-accent-500/5
+    }
+
+    .btn.variant-outlined.intent-info {
+        @apply [--btn-border-color:theme(colors.info.200)] dark:[--btn-border-color:theme(colors.info.500/0.3)] text-info-800 bg-info-50 dark:text-info-300 dark:bg-info-500/5 dark:hover:bg-info-500/10 dark:active:bg-info-500/5
+    }
+
+    .btn.variant-outlined.intent-danger {
+        @apply [--btn-border-color:theme(colors.danger.200)] dark:[--btn-border-color:theme(colors.danger.500/0.3)] text-danger-800 bg-danger-50 dark:text-danger-300 dark:bg-danger-500/5 dark:hover:bg-danger-500/10 dark:active:bg-danger-500/5
+    }
+
+    .btn.variant-outlined.intent-success {
+        @apply [--btn-border-color:theme(colors.success.200)] dark:[--btn-border-color:theme(colors.success.500/0.3)] text-success-800 bg-success-50 dark:text-success-300 dark:bg-success-500/5 dark:hover:bg-success-500/10 dark:active:bg-success-500/5
+    }
+
+    .btn.variant-outlined.intent-gray {
+        @apply [--btn-border-color:theme(colors.gray.200)] dark:[--btn-border-color:theme(colors.gray.500/0.3)] text-gray-800 bg-gray-50 dark:text-gray-300 dark:bg-gray-500/5 dark:hover:bg-gray-500/10 dark:active:bg-gray-500/5
+    }
+
+    .btn.variant-outlined.intent-warning {
+        @apply [--btn-border-color:theme(colors.warning.200)] dark:[--btn-border-color:theme(colors.warning.500/0.3)] text-warning-800 bg-warning-50 dark:text-warning-300 dark:bg-warning-500/5 dark:hover:bg-warning-500/10 dark:active:bg-warning-500/5
+    }
+
+    .btn.variant-outlined.intent-neutral {
+        @apply [--btn-border-color:theme(colors.gray.300)] dark:[--btn-border-color:theme(colors.white)] text-gray-800 bg-gray-100 dark:text-white dark:bg-gray-500/5 dark:hover:bg-gray-500/10 dark:active:bg-gray-500/5
+    }
+
+    .btn.variant-soft.intent-primary {
+        @apply text-primary-700 bg-primary-100 hover:bg-primary-200/75 active:bg-primary-100 dark:text-primary-300 dark:bg-primary-500/10 dark:hover:bg-primary-500/15 dark:active:bg-primary-500/10
+    }
+    .btn.variant-soft.intent-secondary {
+        @apply text-secondary-700 bg-secondary-100 hover:bg-secondary-200/75 active:bg-secondary-100 dark:text-secondary-300 dark:bg-secondary-500/10 dark:hover:bg-secondary-500/15 dark:active:bg-secondary-500/10
+    }
+    .btn.variant-soft.intent-accent {
+        @apply text-accent-700 bg-accent-100 hover:bg-accent-200/75 active:bg-accent-100 dark:text-accent-300 dark:bg-accent-500/10 dark:hover:bg-accent-500/15 dark:active:bg-accent-500/10
+    }
+    .btn.variant-soft.intent-gray {
+        @apply text-gray-700 bg-gray-100 hover:bg-gray-200/75 active:bg-gray-100 dark:text-gray-300 dark:bg-gray-500/10 dark:hover:bg-gray-500/15 dark:active:bg-gray-500/10
+    }
+    .btn.variant-soft.intent-danger {
+        @apply text-danger-700 bg-danger-100 hover:bg-danger-200/75 active:bg-danger-100 dark:text-danger-300 dark:bg-danger-500/10 dark:hover:bg-danger-500/15 dark:active:bg-danger-500/10
+    }
+    .btn.variant-soft.intent-success {
+        @apply text-success-700 bg-success-100 hover:bg-success-200/75 active:bg-success-100 dark:text-success-300 dark:bg-success-500/10 dark:hover:bg-success-500/15 dark:active:bg-success-500/10
+    }
+    .btn.variant-soft.intent-info {
+        @apply text-info-700 bg-info-100 hover:bg-info-200/75 active:bg-info-100 dark:text-info-300 dark:bg-info-500/10 dark:hover:bg-info-500/15 dark:active:bg-info-500/10
+    }
+    .btn.variant-soft.intent-warning {
+        @apply text-warning-700 bg-warning-100 hover:bg-warning-200/75 active:bg-warning-100 dark:text-warning-300 dark:bg-warning-500/10 dark:hover:bg-warning-500/15 dark:active:bg-warning-500/10
+    }
+    .btn.variant-soft.intent-neutral {
+        @apply text-gray-950 bg-gray-100 hover:bg-gray-950 hover:text-white active:text-white active:bg-gray-900 dark:text-gray-300 dark:bg-gray-500/10 dark:hover:bg-white dark:hover:text-gray-950 dark:active:bg-gray-200 dark:active:text-gray-950
+    }
+
+    .btn.variant-ghost.intent-primary{
+        @apply text-primary-600 hover:bg-primary-100 active:bg-primary-200/75 dark:text-primary-400 dark:hover:bg-primary-500/10 dark:active:bg-primary-500/15
+    }
+    .btn.variant-ghost.intent-secondary{
+        @apply text-secondary-600 hover:bg-secondary-100 active:bg-secondary-200/75 dark:text-secondary-400 dark:hover:bg-secondary-500/10 dark:active:bg-secondary-500/15
+    }
+    .btn.variant-ghost.intent-accent{
+        @apply text-accent-600 hover:bg-accent-100 active:bg-accent-200/75 dark:text-accent-400 dark:hover:bg-accent-500/10 dark:active:bg-accent-500/15
+    }
+    .btn.variant-ghost.intent-info{
+        @apply text-info-600 hover:bg-info-100 active:bg-info-200/75 dark:text-info-400 dark:hover:bg-info-500/10 dark:active:bg-info-500/15
+    }
+    .btn.variant-ghost.intent-danger{
+        @apply text-danger-600 hover:bg-danger-100 active:bg-danger-200/75 dark:text-danger-400 dark:hover:bg-danger-500/10 dark:active:bg-danger-500/15
+    }
+    .btn.variant-ghost.intent-success{
+        @apply text-success-600 hover:bg-success-100 active:bg-success-200/75 dark:text-success-400 dark:hover:bg-success-500/10 dark:active:bg-success-500/15
+    }
+    .btn.variant-ghost.intent-warning{
+        @apply text-warning-600 hover:bg-warning-100 active:bg-warning-200/75 dark:text-warning-400 dark:hover:bg-warning-500/10 dark:active:bg-warning-500/15
+    }
+    .btn.variant-ghost.intent-gray{
+        @apply text-gray-800 hover:bg-gray-100 active:bg-gray-200/75 dark:text-gray-300 dark:hover:bg-gray-500/10 dark:active:bg-gray-500/15
+    }
+    .btn.variant-ghost.intent-neutral{
+        @apply text-gray-950 hover:bg-gray-950 hover:text-white active:text-white active:bg-gray-900 dark:text-white dark:hover:bg-white dark:hover:text-gray-950 dark:active:bg-gray-200 dark:active:text-gray-950
+    }
+ 
+    /* Badge */
+
+    .badge{
+        @apply rounded-[--badge-radius] flex items-center gap-1.5 size-fit
+    }
+
+    .badge.variant-solid{
+        @apply text-white
+    }
+
+    .badge.variant-outlined{
+        @apply border
+    }
+
+    .badge.sz-xs {
+        @apply px-1.5 py-0.5 text-xs
+    }
+
+    .badge.sz-sm {
+        @apply px-2 py-0.5 text-sm
+    }
+
+    .badge.sz-md{
+        @apply px-2.5 py-1 text-sm
+    }
+
+    .badge.sz-lg{
+        @apply px-3 py-1 text-base
+    }
+
+    .badge.variant-solid.intent-primary {
+        @apply bg-primary-600 dark:bg-primary-400 dark:text-primary-950
+    }
+
+    .badge.variant-solid.intent-secondary {
+        @apply bg-secondary-600 dark:bg-secondary-400 dark:text-secondary-950
+    }
+
+    .badge.variant-solid.intent-accent {
+        @apply bg-accent-600 dark:bg-accent-400 dark:text-accent-950
+    }
+
+    .badge.variant-solid.intent-info {
+        @apply bg-info-600 dark:bg-info-400 dark:text-info-950
+    }
+
+    .badge.variant-solid.intent-success {
+        @apply bg-success-600 dark:bg-success-400 dark:text-success-950
+    }
+
+    .badge.variant-solid.intent-danger {
+        @apply bg-danger-600 dark:bg-danger-400 dark:text-danger-950
+    }
+
+    .badge.variant-solid.intent-warning {
+        @apply bg-warning-400 text-warning-950
+    }
+
+    .badge.variant-solid.intent-gray {
+        @apply bg-gray-600 dark:bg-gray-400 dark:text-gray-950
+    }
+
+    .badge.variant-outlined.intent-primary, .annonce-concern.variant-outlined.intent-primary{
+        @apply border-primary-200 text-primary-800 dark:border-primary-300/15 dark:text-primary-300
+    }
+
+    .badge.variant-outlined.intent-secondary, .annonce-concern.variant-outlined.intent-secondary{
+        @apply border-secondary-200 text-secondary-800 dark:border-secondary-300/15 dark:text-secondary-300
+    }
+
+    .badge.variant-outlined.intent-accent, .annonce-concern.variant-outlined.intent-accent{
+        @apply border-accent-200 text-accent-800 dark:border-accent-300/15 dark:text-accent-300
+    }
+
+    .badge.variant-outlined.intent-info, .annonce-concern.variant-outlined.intent-info{
+        @apply border-info-200 text-info-800 dark:border-info-300/15 dark:text-info-300
+    }
+
+    .badge.variant-outlined.intent-success, .annonce-concern.variant-outlined.intent-success{
+        @apply border-success-200 text-success-800 dark:border-success-300/15 dark:text-success-300
+    }
+
+    .badge.variant-outlined.intent-danger, .annonce-concern.variant-outlined.intent-danger{
+        @apply border-danger-200 text-danger-800 dark:border-danger-300/15 dark:text-danger-300
+    }
+
+    .badge.variant-outlined.intent-warning, .annonce-concern.variant-outlined.intent-warning{
+        @apply border-warning-300 text-warning-800 dark:border-warning-300/15 dark:text-warning-300
+    }
+
+    .badge.variant-outlined.intent-gray, .annonce-concern.variant-outlined.intent-gray{
+        @apply border-gray-200 text-gray-800 dark:border-gray-300/15 dark:text-gray-300
+    }
+
+    .badge.variant-soft.intent-primary, .annonce-concern.variant-soft.intent-primary{
+        @apply bg-primary-200 text-primary-800 dark:bg-primary-500/15 dark:text-primary-300
+    }
+
+    .badge.variant-soft.intent-secondary, .annonce-concern.variant-soft.intent-secondary{
+        @apply bg-secondary-200 text-secondary-800 dark:bg-secondary-500/15 dark:text-secondary-300
+    }
+
+    .badge.variant-soft.intent-accent, .annonce-concern.variant-soft.intent-accent{
+        @apply bg-accent-200 text-accent-800 dark:bg-accent-500/15 dark:text-accent-300
+    }
+
+    .badge.variant-soft.intent-info, .annonce-concern.variant-soft.intent-info{
+        @apply bg-info-200 text-info-800 dark:bg-info-500/15 dark:text-info-300
+    }
+
+    .badge.variant-soft.intent-success, .annonce-concern.variant-soft.intent-success{
+        @apply bg-success-200 text-success-800 dark:bg-success-500/15 dark:text-success-300
+    }
+
+    .badge.variant-soft.intent-danger, .annonce-concern.variant-soft.intent-danger{
+        @apply bg-danger-200 text-danger-800 dark:bg-danger-500/15 dark:text-danger-300
+    }
+
+    .badge.variant-soft.intent-warning, .annonce-concern.variant-soft.intent-warning{
+        @apply bg-warning-200 text-warning-900 dark:bg-warning-500/15 dark:text-warning-300
+    }
+
+    .badge.variant-soft.intent-gray, .annonce-concern.variant-soft.intent-gray{
+        @apply bg-gray-200 text-gray-800 dark:bg-gray-500/15 dark:text-gray-300
+    }
+
+    /* Form field, input and textarea */
+    .field{
+        @apply relative space-y-2.5 *:has-[:disabled]:opacity-50 *:has-[:disabled]:pointer-events-none has-[:user-invalid]:[--caption-text-color:theme(colors.danger.600)] dark:has-[:user-invalid]:[--caption-text-color:theme(colors.danger.400)]
+    }
+
+    .input, .textarea{
+        @apply w-full placeholder-[--placeholder-text-color] text-[--title-text-color] rounded-[--input-radius]
+    }
+
+    .input.variant-outlined, .textarea.variant-outlined{
+        @apply outline-2 bg-transparent focus:outline-[--input-outline] -outline-offset-1 focus:outline border border-[--input-border]
+    }
+
+    .input.variant-mixed, .textarea.variant-mixed{
+        @apply shadow-sm shadow-gray-950/5 dark:shadow-gray-950/35 outline-2 bg-[--ui-bg] focus:outline-[--input-outline] -outline-offset-1 focus:outline border border-[--input-border]
+    }
+
+    .input.variant-soft, .textarea.variant-soft {
+        @apply outline-none bg-[--ui-soft-bg] focus:brightness-95 dark:focus:brightness-105
+    }
+
+    .input.variant-plain, .textarea.variant-plain {
+        @apply rounded-none outline-none bg-transparent
+    }
+
+    .input.variant-bottomOutlined, .textarea.variant-bottomOutlined {
+        @apply rounded-none bg-transparent focus:outline-none border-b border-[--input-border] focus:border-[--input-outline] focus:border-b-2
+    }
+
+    .input.sz-sm {
+        @apply text-sm h-8
+    }
+
+    .input.sz-md {
+        @apply text-sm h-9
+    }
+
+    .input.sz-lg {
+        @apply h-10
+    }
+
+    .input.sz-xl {
+        @apply h-12
+    }
+
+    .textarea.sz-sm {
+        @apply text-sm py-1.5
+    }
+
+    .textarea.sz-md {
+        @apply text-sm py-2
+    }
+
+    .textarea.sz-lg {
+        @apply py-3
+    }
+
+    .textarea.sz-xl {
+        @apply py-4
+    }
+
+    .input.variant-mixed.sz-sm, .input.variant-outlined.sz-sm, .input.variant-soft.sz-sm, .textarea.variant-mixed.sz-sm, .textarea.variant-outlined.sz-sm, .textarea.variant-soft.sz-sm {
+        @apply px-2.5
+    }
+
+    .input.variant-mixed.sz-md, .input.variant-outlined.sz-md, .input.variant-soft.sz-md, .textarea.variant-mixed.sz-md, .textarea.variant-outlined.sz-md, .textarea.variant-soft.sz-md {
+        @apply px-3
+    }
+
+    .input.variant-mixed.sz-lg, .input.variant-outlined.sz-lg, .input.variant-soft.sz-lg, .textarea.variant-mixed.sz-lg, .textarea.variant-outlined.sz-lg, .textarea.variant-soft.sz-lg {
+        @apply px-4
+    }
+
+    .input.variant-mixed.sz-xl, .input.variant-outlined.sz-xl, .input.variant-soft.sz-xl, .textarea.variant-mixed.sz-xl, .textarea.variant-outlined.sz-xl, .textarea.variant-soft.sz-xl {
+        @apply px-5
+    }
+
+    .switch{
+        @apply block relative w-8 h-5 border transition duration-300 rounded-full bg-ui-soft dark:bg-[--ui-bg] has-[:checked]:border-white/5
+    }
+
+    .switch-thumb{
+        @apply absolute inset-x-[1px] inset-y-0 my-auto size-4 rounded-full bg-white shadow-sm shadow-gray-950/25 transition-[transform,width] ease-in-out duration-300 will-change-transform peer-checked:translate-x-3
+    }
+
+    .switch-thumb.intent-neutral{
+        @apply absolute inset-x-[1px] inset-y-0 my-auto size-4 rounded-full bg-white shadow-sm shadow-gray-950/25 transition-[transform,width] ease-in-out duration-300 will-change-transform peer-checked:translate-x-3 dark:peer-checked:bg-gray-900
+    }
+
+    .switch.intent-primary{
+        @apply has-[:checked]:bg-primary-600
+    }
+
+    .switch.intent-secondary{
+        @apply has-[:checked]:bg-secondary-600
+    }
+
+    .switch.intent-accent{
+        @apply has-[:checked]:bg-accent-600
+    }
+
+    .switch.intent-gray{
+        @apply has-[:checked]:bg-gray-600
+    }
+
+    .switch.intent-neutral{
+        @apply has-[:checked]:bg-gray-950 dark:has-[:checked]:bg-white
+    }
+
+    .checkbox, .radio{
+        @apply block relative size-[1.125rem] border border-gray-300 dark:border-[--ui-border-color] transition duration-300 rounded shadow-sm shadow-gray-950/5 dark:bg-ui has-[:checked]:bg-primary-600 has-[:checked]:border-white/5
+    }
+
+    .checkbox-icon{
+        @apply absolute inset-0 m-auto size-3.5 transition duration-300 text-gray-950 dark:text-white scale-75 opacity-0 group-hover:opacity-25 peer-checked:scale-100 peer-checked:text-white peer-checked:opacity-100
+    }
+
+    .radio-indicator{
+        @apply absolute inset-0 m-auto size-2 rounded-full peer-checked:shadow peer-checked:shadow-gray-950/25 transition duration-300 bg-gray-950 dark:bg-white scale-75 opacity-0 group-hover:opacity-25 peer-checked:scale-100 peer-checked:bg-white peer-checked:opacity-100
+    }
+
+    .checkbox, .radio, .switch{
+        @apply overflow-hidden has-[:focus-visible]:outline has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-primary-600
+    }
+
+    .checkbox>input, .radio>input, .switch>input{
+        @apply absolute -left-6 size-2
+    }
+    /* Card */
+
+    .card{
+        @apply p-[--card-padding] rounded-[--card-radius]
+    }
+
+    .card.variant-outlined {
+        @apply border bg-[--ui-bg]
+    }
+
+    .card.variant-mixed {
+        @apply border bg-[--ui-bg] shadow shadow-gray-950/5
+    }
+
+    .card.variant-soft{
+        @apply bg-[--ui-soft-bg]
+    }
+
+    /* Kbd */
+
+    .kbd {
+        @apply inline-flex items-center justify-center text-gray-800 dark:text-white h-5 text-[11px] min-w-5 px-1.5 rounded font-sans bg-gray-100 dark:bg-white/10 ring-1 border-b border-t border-t-white border-b-gray-200 dark:border-t-transparent dark:border-b-gray-950 ring-gray-300 dark:ring-white/15
+    }
+
+    /* Code */
+
+    .code {
+        @apply text-sm inline-block border rounded-md py-px px-1
+    }
+
+    .code.intent-primary {
+        @apply bg-primary-50 text-primary-600 dark:text-primary-300 border-primary-200 dark:border-primary-500/20 dark:bg-primary-500/5
+    }
+
+    .code.intent-secondary {
+        @apply bg-secondary-50 text-secondary-600 dark:text-secondary-300 border-secondary-200 dark:border-secondary-500/20 dark:bg-secondary-500/5
+    }
+
+    .code.intent-accent {
+        @apply bg-accent-50 text-accent-600 dark:text-accent-300 border-accent-200 dark:border-accent-500/20 dark:bg-accent-500/5
+    }
+
+    .code.intent-gray {
+        @apply bg-gray-50 text-[--body-text-color] dark:border-gray-500/20 dark:bg-gray-500/5
+    }
+
+    .code.intent-neutral {
+        @apply bg-gray-50 text-gray-950 dark:text-white dark:bg-gray-500/5 dark:border-gray-500/20
+    }
+
+    /* Link */
+
+    .link {
+        @apply transition text-primary-600 dark:text-primary-400
+    }
+
+    .link.variant-ghost{
+        @apply hover:underline
+    }
+
+    .link.variant-underlined{
+        @apply underline
+    }
+
+    .link.variant-animated {
+        @apply relative before:absolute before:inset-x-0 before:bottom-0 before:h-px before:scale-x-0 before:origin-right hover:before:origin-left hover:before:scale-x-100 before:transition before:duration-200
+    }
+
+    .link.intent-info {
+        @apply text-info-600 dark:text-info-400
+    }
+
+    .link.intent-neutral {
+        @apply text-gray-950 dark:text-white
+    }
+
+    .link.variant-animated.intent-neutral{
+        @apply before:bg-gray-950/50 dark:before:bg-white/50
+    }
+
+    .link.variant-animated.intent-info{
+        @apply before:bg-info-300 dark:before:bg-info-600
+    }
+
+    .link.variant-animated.intent-primary{
+        @apply before:bg-primary-300 dark:before:bg-primary-600
+    }
+
+    .link.variant-underlined.intent-neutral, .link.variant-ghost.intent-neutral{
+        @apply decoration-gray-950/50 dark:decoration-white/50
+    }
+
+    /* Separator */
+    .separator {
+        @apply bg-[--ui-border-color] h-px w-full block
+    }
+
+    .separator.vertical{
+        @apply w-px h-full
+    }
+
+    /* Annonce */
+    .annonce{
+        @apply flex items-center gap-3 w-fit rounded-[--annonce-radius]
+    }
+
+    .annonce.variant-outlined{
+        @apply border
+    }
+
+    .annonce.variant-soft{
+        @apply bg-[--ui-soft-bg]
+    }
+
+    .annonce.variant-mixed{
+        @apply border bg-[--ui-bg] shadow-sm shadow-gray-950/5 dark:shadow-gray-950/25
+    }
+
+    .annonce.sz-xs{
+        @apply py-0.5 pl-0.5 pr-3 [&>span]:rounded-[calc(var(--annonce-radius)-2px)]
+    }
+
+    .annonce.sz-sm{
+        @apply py-1 pl-1 pr-4 [&>span]:rounded-[calc(var(--annonce-radius)-4px)]
+    }
+
+    .annonce.sz-md{
+        @apply py-1.5 pl-1.5 pr-5 [&>span]:rounded-[calc(var(--annonce-radius)-6px)]
+    }
+
+    .annonce.sz-lg{
+        @apply py-2 pl-2 pr-6 [&>span]:rounded-[calc(var(--annonce-radius)-8px)]
+    }
+
+    .annonce-concern{
+        @apply block text-white px-2 py-0.5
+    }
+
+    .annonce-concern.variant-outlined{
+        @apply border
+    }
+
+    .annonce-concern.sz-xs{
+        @apply text-xs
+    }
+
+    .annonce-concern.sz-sm{
+        @apply text-sm
+    }
+
+    .annonce-concern.sz-md{
+        @apply text-sm px-2.5
+    }
+
+    .annonce-concern.sz-lg{
+        @apply text-base px-3 py-1
+    }
+
+    .annonce-concern.variant-solid.intent-primary {
+        @apply bg-primary-600
+    }
+
+    .annonce-concern.variant-solid.intent-secondary {
+        @apply bg-secondary-600
+    }
+
+    .annonce-concern.variant-solid.intent-accent {
+        @apply bg-accent-600
+    }
+
+    .annonce-concern.variant-solid.intent-info {
+        @apply bg-info-600
+    }
+
+    .annonce-concern.variant-solid.intent-success {
+        @apply bg-success-600
+    }
+
+    .annonce-concern.variant-solid.intent-danger {
+        @apply bg-danger-600
+    }
+
+    .annonce-concern.variant-solid.intent-warning {
+        @apply bg-warning-400 text-warning-950
+    }
+
+    .annonce-concern.variant-solid.intent-gray {
+        @apply bg-gray-600
+    }
+
+    .annonce-concern.variant-solid.intent-neutral {
+        @apply bg-gray-950 dark:bg-white dark:text-gray-950
+    }
+
+    /* Progress */
+    .progress {
+        @apply bg-[--ui-soft-bg] rounded-full overflow-hidden
+    }
+
+    .progress.sz-xs {
+        @apply h-0.5
+    }
+
+    .progress.sz-sm {
+        @apply h-1
+    }
+
+    .progress.sz-md {
+        @apply h-1.5
+    }
+
+    .progress.sz-lg {
+        @apply h-2.5
+    }
+
+    .progress.sz-xl {
+        @apply h-3.5
+    }
+
+    .progress-indicator{
+        @apply h-full ease-[cubic-bezier(0.65,0,0.35,1)] rounded-full transition-transform duration-[660ms]
+    }
+
+    .progress-indicator.intent-primary{
+        @apply bg-primary-600
+    }
+    .progress-indicator.intent-secondary{
+        @apply bg-secondary-600
+    }
+    .progress-indicator.intent-accent{
+        @apply bg-accent-600
+    }
+    .progress-indicator.intent-danger{
+        @apply bg-danger-600
+    }
+    .progress-indicator.intent-info{
+        @apply bg-info-600
+    }
+    .progress-indicator.intent-success{
+        @apply bg-success-600
+    }
+    .progress-indicator.intent-warning{
+        @apply bg-warning-600
+    }
+    .progress-indicator.intent-gray{
+        @apply bg-gray-600
+    }
+    .progress-indicator.intent-neutral{
+        @apply bg-gray-950 dark:bg-white
+    }
+
+    /* Avatar */
+    .avatar{
+        @apply block border border-gray-950/5 dark:border-white/5 relative rounded-[--avatar-radius] *:rounded-[--avatar-radius] before:hidden
+    }
+
+    .avatar img{
+        @apply size-full object-cover
+    }
+
+    .avatar.avatar-status{
+        @apply before:absolute before:z-[1] before:block before:right-px before:rounded-full before:border-white dark:before:border-gray-950
+    }
+
+    .avatar.sz-xs, .avatar.sz-sm{
+        @apply before:size-2 before:border-[1px]
+    }
+
+    .avatar.sz-xxs{
+        @apply text-xs size-6 before:size-1.5 before:border-[1px]
+    }
+
+    .avatar.sz-xs{
+        @apply text-xs size-7
+    }
+
+    .avatar.sz-sm{
+        @apply text-sm size-8
+    }
+
+    .avatar.sz-md{
+        @apply text-sm size-9 before:border-2 before:right-px before:size-2.5
+    }
+
+    .avatar.sz-lg{
+        @apply text-base size-10 before:top-0.5 before:right-0.5 before:size-2.5 before:border-[2px]
+    }
+
+    .avatar.sz-xl{
+        @apply text-lg size-12 before:top-[3px] before:border-2 before:right-[3px] before:size-2.5
+    }
+
+    .avatar.sz-xxl{
+        @apply text-sm size-16 before:size-3 before:border-2 before:top-1 before:right-1
+    }
+
+    .avatar.sz-xxxl{
+        @apply text-2xl size-20 before:size-3.5 before:border-2 before:top-1.5 before:right-1.5
+    }
+
+    .avatar.status-online{
+        @apply before:bg-success-600 dark:before:bg-success-400
+    }
+
+    .avatar.status-offline{
+        @apply before:bg-gray-600 dark:before:bg-gray-400
+    }
+
+    .avatar.status-away{
+        @apply before:bg-warning-600 dark:before:bg-warning-500
+    }
+
+    .avatar.status-busy{
+        @apply before:bg-danger-600 dark:before:bg-danger-400
+    }
+
+    .avatar.fallback-soft, .avatar.fallback-solid{
+        @apply flex items-center justify-center font-medium
+    }
+
+    .avatar.fallback-soft.intent-primary{
+        @apply bg-primary-200 text-primary-800 dark:bg-primary-500/15 dark:text-primary-300
+    }
+
+    .avatar.fallback-soft.intent-secondary{
+        @apply bg-secondary-200 text-secondary-800 dark:bg-secondary-500/15 dark:text-secondary-300
+    }
+
+    .avatar.fallback-soft.intent-accent{
+        @apply bg-accent-200 text-accent-800 dark:bg-accent-500/15 dark:text-accent-300
+    }
+
+    .avatar.fallback-soft.intent-info{
+        @apply bg-info-200 text-info-800 dark:bg-info-500/15 dark:text-info-300
+    }
+
+    .avatar.fallback-soft.intent-success{
+        @apply bg-success-200 text-success-800 dark:bg-success-500/15 dark:text-success-300
+    }
+
+    .avatar.fallback-soft.intent-danger{
+        @apply bg-danger-200 text-danger-800 dark:bg-danger-500/15 dark:text-danger-300
+    }
+
+    .avatar.fallback-soft.intent-warning{
+        @apply bg-warning-200 text-warning-800 dark:bg-warning-500/15 dark:text-warning-300
+    }
+
+    .avatar.fallback-soft.intent-gray{
+        @apply bg-gray-200 text-gray-800 dark:bg-gray-500/15 dark:text-gray-300
+    }
+
+    .avatar.fallback-solid{
+        @apply text-white
+    }
+
+    .avatar.fallback-solid.intent-primary{
+        @apply bg-primary-600
+    }
+
+    .avatar.fallback-solid.intent-secondary{
+        @apply bg-secondary-600
+    }
+
+    .avatar.fallback-solid.intent-accent{
+        @apply bg-accent-600
+    }
+
+    .avatar.fallback-solid.intent-info{
+        @apply bg-info-600
+    }
+
+    .avatar.fallback-solid.intent-success{
+        @apply bg-success-600
+    }
+
+    .avatar.fallback-solid.intent-danger{
+        @apply bg-danger-600
+    }
+
+    .avatar.fallback-solid.intent-warning{
+        @apply bg-warning-400 text-warning-950
+    }
+
+    .avatar.fallback-solid.intent-gray{
+        @apply bg-gray-600
+    }
+
+    .callout{
+        @apply p-4 rounded-[--card-radius]
+    }
+
+    .callout-title{
+        @apply font-medium text-[--title-text-color]
+    }
+
+    .callout-description{
+        @apply text-[--body-text-color]
+    }
+
+    .callout-link{
+        @apply text-[--title-text-color] underline font-medium
+    }
+
+    .callout.intent-primary{
+        @apply bg-primary-50 [--title-text-color:theme(colors.primary.900)] [--body-text-color:theme(colors.primary.600)] dark:bg-primary-500/10 dark:[--title-text-color:theme(colors.primary.300)] dark:[--body-text-color:theme(colors.primary.400)]
+    }
+
+    .callout.intent-secondary{
+        @apply bg-secondary-50 [--title-text-color:theme(colors.secondary.900)] [--body-text-color:theme(colors.secondary.600)] dark:bg-secondary-500/10 dark:[--title-text-color:theme(colors.secondary.300)] dark:[--body-text-color:theme(colors.secondary.400)]
+    }
+
+    .callout.intent-accent{
+        @apply bg-accent-50 [--title-text-color:theme(colors.accent.900)] [--body-text-color:theme(colors.accent.600)] dark:bg-accent-500/10 dark:[--title-text-color:theme(colors.accent.300)] dark:[--body-text-color:theme(colors.accent.400)]
+    }
+
+    .callout.intent-info{
+        @apply bg-info-50 [--title-text-color:theme(colors.info.900)] [--body-text-color:theme(colors.info.600)] dark:bg-info-500/10 dark:[--title-text-color:theme(colors.info.300)] dark:[--body-text-color:theme(colors.info.400)]
+    }
+
+    .callout.intent-success{
+        @apply bg-success-50 [--title-text-color:theme(colors.success.900)] [--body-text-color:theme(colors.success.600)] dark:bg-success-500/10 dark:[--title-text-color:theme(colors.success.300)] dark:[--body-text-color:theme(colors.success.400)]
+    }
+
+    .callout.intent-danger{
+        @apply bg-danger-50 [--title-text-color:theme(colors.danger.900)] [--body-text-color:theme(colors.danger.600)] dark:bg-danger-500/10 dark:[--title-text-color:theme(colors.danger.300)] dark:[--body-text-color:theme(colors.danger.400)]
+    }
+
+    .callout.intent-warning{
+        @apply bg-warning-50 [--title-text-color:theme(colors.warning.800)] [--body-text-color:theme(colors.warning.700)] dark:bg-warning-500/10 dark:[--title-text-color:theme(colors.warning.300)] dark:[--body-text-color:theme(colors.warning.400)]
+    }
+
+    .callout.intent-gray{
+        @apply bg-gray-100 [--title-text-color:theme(colors.gray.900)] [--body-text-color:theme(colors.gray.600)] dark:bg-gray-500/10 dark:[--title-text-color:theme(colors.gray.300)] dark:[--body-text-color:theme(colors.gray.400)]
+    }
+}
