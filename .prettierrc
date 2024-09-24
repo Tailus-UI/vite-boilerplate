@@ -2,7 +2,6 @@
     "printWidth": 500,
     "semi": false,
     "tabWidth": 4,
-    "parser": "babel",
     "singleQuote": true,
     "trailingComma": "es5",
     "quoteProps": "as-needed",
